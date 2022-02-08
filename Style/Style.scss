@@ -1,55 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-$First : #FFFCF2;
-$Second : #252422;
-$Third : "Roboto", sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+$First: #fffcf2;
+$Second: #252422;
+$Third: "Roboto", sans-serif;
 
-
-body{
-	background: $First;
+body {
+  background: $First;
 }
 
-header{
-	width: 100vw;
-	height: 10vh;
-	display: flex;
+header {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
 }
 
-nav{
-	width: 75vw;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	margin-top: 20px;
+nav {
+  width: 75vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
-main{
-	width: 75vw;
-	height: 90vh;
-	background-color: $First;
-	display: flex;
+main {
+  width: 75vw;
+  height: 90vh;
+  background-color: $First;
+  display: flex;
 }
 
-a{
-	font-family: $Third;
-	font-weight: 700;
-	text-decoration: none;
-	color: $Second;
+a {
+  font-family: $Third;
+  font-weight: 700;
+  text-decoration: none;
+  color: $Second;
 }
 
-aside{
-	height: 100vh;
-	width: 25vw;
-	background-color: $Second;
-	display: flex;
+aside {
+  height: 100vh;
+  width: 25vw;
+  background-color: $Second;
+  display: flex;
 }
 
-img{
-	width: 75vw;
-	margin-top: 45vh;
+img {
+  width: 75vw;
+  margin-top: 45vh;
 }
-
-
-
 
 $animation-timing: 27s;
 $carousel-items: 9;
@@ -57,7 +53,9 @@ $animation-delay-fraction: $animation-timing / $carousel-items;
 $animation-steps-fraction: 100 / $carousel-items;
 $slide-change-timing: 3; // percentage of total animation cycle
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -67,7 +65,7 @@ $slide-change-timing: 3; // percentage of total animation cycle
   width: 25vw;
   display: flex;
   justify-content: center;
-	margin-top: -10vh;
+  margin-top: -10vh;
 }
 
 .carousel {
@@ -88,10 +86,10 @@ $slide-change-timing: 3; // percentage of total animation cycle
   opacity: 0;
   filter: drop-shadow(0 2px 2px #555);
   will-change: transform, opacity;
-  animation: carousel-animate-vertical $animation-timing linear infinite;
+  animation: carousel-animate-vertical $animation-timing ease-in-out infinite;
 }
 
-@for $i from 1 through ($carousel-items - 1) { 
+@for $i from 1 through ($carousel-items - 1) {
   .carousel__item:nth-child(#{$i}) {
     animation-delay: calc(#{$animation-delay-fraction} * #{$i - 2});
   }
@@ -102,7 +100,7 @@ $slide-change-timing: 3; // percentage of total animation cycle
 }
 
 // example without negative delays
-// @for $i from 1 through ($carousel-items) { 
+// @for $i from 1 through ($carousel-items) {
 //   .carousel__item:nth-child(#{$i}) {
 //     animation-delay: calc(#{$animation-delay-fraction} * #{$i});
 //   }
@@ -145,7 +143,7 @@ $slide-change-timing: 3; // percentage of total animation cycle
   #{$slide-change-timing}%,
   #{$animation-steps-fraction}% {
     transform: translateY(100%) scale(0.7);
-    opacity: .4;
+    opacity: 0.4;
     visibility: visible;
   }
   #{$animation-steps-fraction + $slide-change-timing}%,
@@ -157,7 +155,7 @@ $slide-change-timing: 3; // percentage of total animation cycle
   #{($animation-steps-fraction * 2) + $slide-change-timing}%,
   #{$animation-steps-fraction * 3}% {
     transform: translateY(-100%) scale(0.7);
-    opacity: .4;
+    opacity: 0.4;
     visibility: visible;
   }
   #{($animation-steps-fraction * 3) + $slide-change-timing}% {
